@@ -1,0 +1,31 @@
+<div class="job_table_container">
+  <table class="job_table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>
+          Name
+          <span class="sort_icon" (click)="sortByName()">
+            {{ isAscending ? "▲" : "▼" }}
+          </span>
+        </th>
+        <th>Created At</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let job of jobs">
+        <td>{{ job.id }}</td>
+        <td>{{ job.name }}</td>
+        <td>{{ job.createdAt | date : "M/d/yy, h:mm a" }}</td>
+        <td>{{ job.status }}</td>
+        <td>
+          <button (click)="getJobDetail(job)" class="view_button">
+            View Job
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
